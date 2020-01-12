@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:id="@+id/root"
+    tools:context=".AnimActivity">
+
+    <View
+        android:layout_width="200dp"
+        android:background="#606"
+        android:layout_height="320dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/bottomView" />
+
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="320dp"
+        android:background="#660"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/topView" />
+
+</RelativeLayout>
