@@ -2,8 +2,10 @@ package com.unittest.app;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class AnimActivity extends AppCompatActivity{
 
@@ -16,6 +18,7 @@ public class AnimActivity extends AppCompatActivity{
     int windowheight; // Actually the height of the RelativeLayout.
     View mRrootLayout;
     int initLeftMargin,initRightMargin;
+    TextView alphaText,swipeLeft;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,22 +28,26 @@ public class AnimActivity extends AppCompatActivity{
         bottomView = findViewById(R.id.bottomView);
         topView = findViewById(R.id.topView);
 
+        alphaText = findViewById(R.id.tv_view_alpha);
+        swipeLeft = findViewById(R.id.tv_swipe_left);
+
 
         topView.post(new Runnable() {
             @Override
             public void run() {
-                initLeftTopView = topView.getLeft();
-                windowwidth = mRrootLayout.getWidth();
-                windowheight = mRrootLayout.getHeight();
-                RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) topView
-                        .getLayoutParams();
-                initLeftMargin = lp.leftMargin;
-                initRightMargin = lp.rightMargin;
-
-                crossoverMidpt = initLeftTopView - (topView.getWidth()/2);
-                topView.setOnTouchListener(new SlidingOpenListener(initLeftTopView,windowwidth,crossoverMidpt));
+                topView.setOnTouchListener(new SlidingOpenListener(AnimActivity.this, topView.getLeft(), mRrootLayout.getWidth()
+                        , topView.getWidth(),
+                        new SlidingOpenListener.OnScrollOpenListener() {
+                    @Override
+                    public void onScrollChanged(int percent) {
+                        alphaText.setText(String.valueOf(percent));
+                        swipeLeft.setAlpha((float) percent / 100);
+                    }
+                },80));
             }
         });
+
+
     }
 
 
