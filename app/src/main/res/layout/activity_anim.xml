@@ -8,21 +8,43 @@
     android:id="@+id/root"
     tools:context=".AnimActivity">
 
-    <View
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_view_alpha"
+        android:textColor="#fff"
+        android:text=""/>
+
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="200dp"
-        android:background="#606"
+        android:background="#8f00"
         android:layout_height="320dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:id="@+id/bottomView" />
+        android:id="@+id/bottomView" >
+
+    </LinearLayout>
 
 
     <View
+        tools:visibility="visible"
         android:layout_width="200dp"
         android:layout_height="320dp"
-        android:background="#660"
+        android:background="#80f0"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:id="@+id/topView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_swipe_left"
+        android:textColor="#fff"
+        android:layout_centerInParent="true"
+        android:alpha="0.5"
+        android:text="SwipeLeft"/>
 
 </RelativeLayout>
